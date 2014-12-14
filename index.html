@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Présentation kit</title>
+
+		<meta name="description" content="Un framework pour créer facilement de magnifiques présentations en utilisant HTML">
+		<meta name="author" content="Alex Sampaio">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/monokai_sublime.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<section>
+						<h1>Search Engine with Lucene</h1>
+					</section>
+					<section>
+						<h3>Summary</h3>
+						<ul>
+							<li>Clean Dump XML</li>
+							<li>Create index with Lucene</li>
+							<li>Request on index</li>
+							<li>Display result</li>
+						</ul>
+					</section>				
+				</section>
+				<section>
+					<section>
+						<h1>Clean Dump XML</h1>
+					</section>
+					<section>
+						<h2>Extract title and entities</h2>
+						Tool used :
+						<b>SAX (parser XML for JAVA)</b>
+					</section>
+					<section>
+						<h2>For not overload the memory :</h2>
+						<h3>Write in file at each node page</h3>
+						<h3>Write stream with JAVA </h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Create index with Lucene</h1>
+					</section>
+					<section>
+						<ul>
+							<li>Read file clean XML</li>
+							<li>For each page, create document (Lucene's class used)</li>
+							<li>Content of this document : Concat entities, title, id</li>
+							<li>Increment (+1) boost title field</li>
+						</ul>
+					</section>
+					<section>
+						<h3>An other point :</h3>
+						Specify french analyzer in Lucene configuration for accented character
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Request on index</h1>
+					</section>
+					<section>
+						<ul>
+							<li>Search on multiple fields</li>
+							<li>Use french analyzer for parsing request</li>
+							<li>Request return the first 100 results</li>
+							<li>Create objet for each result and sort entities by occurrence</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section><h1>Display result</h1></section>
+					<section>
+						<h2>Technologies Used</h2>
+						<ul>
+							<li>J2EE ( servlet, jsp, jslt )</li>
+							<li>Apache Tomcat</li>
+							<li>jqCloud for generate cloud tag in JS</li>
+						</ul>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
