@@ -64,6 +64,7 @@
 						<h2>Extract title and entities</h2>
 						Tool used :
 						<b>SAX (parser XML for JAVA)</b>
+						<b>Regex</b>
 					</section>
 					<section>
 						<h2>For not overload the memory :</h2>
@@ -79,7 +80,7 @@
 						<ul>
 							<li>Read file clean XML</li>
 							<li>For each page, create document (Lucene's class used)</li>
-							<li>Content of this document : Concat entities, title, id</li>
+							<li>Content of this document : Concatenation entities, title, id</li>
 							<li>Increment (+1) boost title field</li>
 						</ul>
 					</section>
@@ -96,8 +97,8 @@
 						<ul>
 							<li>Search on multiple fields</li>
 							<li>Use french analyzer for parsing request</li>
-							<li>Request return the first 100 results</li>
-							<li>Create objet for each result and sort entities by occurrence</li>
+							<li>Request return the first 20 results</li>
+							<li>Create objet for each result and sort entities by occurrences</li>
 						</ul>
 					</section>
 				</section>
@@ -106,9 +107,9 @@
 					<section>
 						<h2>Technologies Used</h2>
 						<ul>
-							<li>J2EE ( servlet, jsp, jslt )</li>
+							<li>JAVA Enterprise Edition ( servlet, jsp, jslt )</li>
 							<li>Apache Tomcat</li>
-							<li>jqCloud for generate cloud tag in JS</li>
+							<li>Librairy jqCloud for generate cloud tag in JS</li>
 						</ul>
 					</section>
 				</section>
